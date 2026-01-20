@@ -1,5 +1,5 @@
 /* Designing a 1NF table*/
-CREATE TABLE sports(
+CREATE TABLE student_sports(
     /* unique identifier */
     entry_id SERIAL PRIMARY KEY ,
     /* Student id  Not unique since many students can play more than 1 sport */
@@ -12,7 +12,7 @@ CREATE TABLE sports(
 Loading the data in 1NF Format
 Note we can load the same student id 
 */
-INSERT INTO sports(student_id, sport)
+INSERT INTO student_sports(student_id, sport)
 VALUES
     (54 , 'Basketball'),
     (24 , 'Football'),
