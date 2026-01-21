@@ -54,3 +54,12 @@ CREATE TABLE sports(
 /* Now student_id and sport become FOREIGN KEYS that connect their respective tables to the student_sports table 
  Achieving 2NF
 */
+
+/* Good schemas use composite keys */
+CREATE TABLE student_sports(
+    student_id INTEGER NOT NULL,
+    sport VARCHAR(200) NOT NULL,
+    
+    PRIMARY KEY(student_id, sport)
+);
+/* This ensures no student can have a sport logged twice*/
