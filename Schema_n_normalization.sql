@@ -43,7 +43,7 @@ when a table has a composite key here is when we check for 2NF
 CREATE TABLE student_sports(
     student_id INTEGER NOT NULL,
     sport VARCHAR(200) NOT NULL
-    PRIMARY KEY(student_id, sport)
+    PRIMARY KEY(student_id, sport) 
 );
 CREATE TABLE students(
     student_id INTEGER NOT NULL PRIMARY KEY,
@@ -54,8 +54,7 @@ CREATE TABLE sports(
     sport VARCHAR(200) NOT NULL PRIMARY KEY,
     coach VARCHAR(200) NOT NULL
 );
-
-/* Now the table is 2NF since it wholy depends on the primary_key*/
+/* Now the table is 2NF since it wholy depends on the composite Key(primary_key)*/
 
 
 /*
