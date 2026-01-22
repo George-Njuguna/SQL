@@ -92,3 +92,5 @@ CREATE TABLE sports(
 /* Now student_id and sport become FOREIGN KEYS that connect their respective tables to the student_sports table 
  Achieving 3NF
 */
+
+/* INDEXES */
