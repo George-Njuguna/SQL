@@ -109,3 +109,17 @@ USING HASH(student_id)
         - The table contains alot of rows ie Millions of Rows 
         - You are 100% sure that you will never need to range search 
 */
+
+/*
+    COMPOSITE INDEXING
+    We can index multiple columns together inorder to make a composite index
+    This especially prevalent when choosing columns that come in pairs:
+                                                                    first name - second name 
+                                                                    city - state
+    in queries that involve checking both first name and last name it is better to use a composite index since it is faster than 
+    an index with only one column.
+    note the leftmost rule which states thata composite index of first name and second name helps in speeding up the query 
+    where it filters by only first name but does not help the query that only filters by secnd name 
+*/
+CREATE INDEX idx_student_names
+ON students(first_name, last_name);
