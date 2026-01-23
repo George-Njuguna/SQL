@@ -95,9 +95,12 @@ CREATE TABLE sports(
 
 /* INDEXES */
 /* Normaly postgres automatically creates indexes for you but if you want to create an index manually*/
-CREATE INDEX idx_student_email ON students(email)
+CREATE INDEX idx_student_email 
+ON students(email)
     /*The index name*/            /*(table)  (column)*/ 
 
 /* To create a hash table which is 0(N)*/
-CREATE INDEX idx_student_id_hash ON students USING HASH(student_id)
+CREATE INDEX idx_student_id_hash 
+ON students 
+USING HASH(student_id)
 
