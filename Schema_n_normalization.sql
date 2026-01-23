@@ -104,3 +104,8 @@ CREATE INDEX idx_student_id_hash
 ON students 
 USING HASH(student_id)
 
+/* 
+    Always use B-tree index instead of hash but only use Hsh index when :
+        - The table contains alot of rows ie Millions of Rows 
+        - You are 100% sure that you will never need to range search 
+*/
