@@ -47,7 +47,8 @@ CREATE TABLE student_sports(
 );
 CREATE TABLE students(
     student_id INTEGER NOT NULL PRIMARY KEY,
-    student_name VARCHAR(200) NOT NULL
+    student_name VARCHAR(200) NOT NULL,
+    student_email VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE sports(
@@ -93,3 +94,5 @@ CREATE TABLE sports(
 */
 
 /* INDEXES */
+/* Normaly postgres automatically creates indexes for you but if you want to create an index manually*/
+
