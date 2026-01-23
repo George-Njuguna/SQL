@@ -98,3 +98,6 @@ CREATE TABLE sports(
 CREATE INDEX idx_student_email ON students(email)
     /*The index name*/            /*(table)  (column)*/ 
 
+/* To create a hash table which is 0(N)*/
+CREATE INDEX idx_student_id_hash ON students USING HASH(student_id)
+
