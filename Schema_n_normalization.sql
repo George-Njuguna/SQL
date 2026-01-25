@@ -132,5 +132,8 @@ ON students(first_name, last_name);
 
     EXPLAIN  - When you use explain in your query it shows you how the engine will run the query.
              - Explain doesnt actually run the query it just analyzes 
+
+    EXPLAIN ANALYZE - when you use EXPLAIN ANALYZE this actually runs and analyzes the run
+                    - Therefore it is important to be carefull when using it with DELETE or UPDATE statements since it will run them.
 */
              
