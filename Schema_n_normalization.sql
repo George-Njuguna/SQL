@@ -135,5 +135,19 @@ ON students(first_name, last_name);
 
     EXPLAIN ANALYZE - when you use EXPLAIN ANALYZE this actually runs and analyzes the run
                     - Therefore it is important to be carefull when using it with DELETE or UPDATE statements since it will run them.
+    
+    In your output you see seq scan this is bad this means that the query is checking every row therefore can be very slow when having table with millions of rows, Therefore you need to add indexes.
+    The good one is index_scan which shows it is using a b_tree index 
+    The best one is Index only scan The DB finds all the data it needs inside the index itself and never even touches the actual table
 */
+EXPLAIN 
+SELECT * 
+FROM students
+WHERE student_id = 101; /* This doesnt run the query it only analyzes */
+
+EXPLAIN ANALYZE
+SELECT * 
+FROM students
+WHERE student_id = 101; /* This runs and analyzes the query also giving the time spent */
+
              
