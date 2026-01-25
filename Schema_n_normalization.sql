@@ -123,3 +123,14 @@ USING HASH(student_id);
 */
 CREATE INDEX idx_student_names
 ON students(first_name, last_name);
+
+/*
+    EXPLAIN and EXPLAIN ANALYZE
+    - When you use explain and EXPLAIN ANALYZE in your query it shows you how the engine thinks and what is going on in the behind the scene
+    - This is important when creating tables because when you notice a query taking alot of time to finish you can use EXPLAIN and 
+      EXPLAIN Analyze to see what is happening and what path the engine is taking maybe its not using your indexes and maybe you forgot to add
+
+    EXPLAIN  - When you use explain in your query it shows you how the engine will run the query.
+             - Explain doesnt actually run the query it just analyzes 
+*/
+             
