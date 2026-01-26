@@ -20,3 +20,7 @@ CREATE TABLE IF NOT EXISTS consultants(
     PRIMARY KEY(consultant_name, consultant_email)
 );
 
+CREATE TABLE IF NOT EXISTS clients(
+    client_name VARCHAR(100) NOT NULL PRIMARY KEY,
+    client_hq_city VARCHAR(100) NOT NULL
+);
