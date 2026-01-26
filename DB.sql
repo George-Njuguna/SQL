@@ -1,7 +1,8 @@
 /* 
     Creating a database where i will be testing my data warehousing skills
 */
-CREATE DATABASE IF NOT EXISTS wrhsetestDB;
+CREATE DATABASE IF NOT EXISTS wrhsetestdb;
+
 
 /*
     creating tables that are 3NF
@@ -24,3 +25,4 @@ CREATE TABLE IF NOT EXISTS clients(
     client_name VARCHAR(100) NOT NULL PRIMARY KEY,
     client_hq_city VARCHAR(100) NOT NULL
 );
+
