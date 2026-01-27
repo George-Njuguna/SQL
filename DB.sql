@@ -41,5 +41,12 @@ CREATE INDEX idx_projects_client_id ON projects(client_id);
 */
 EXPLAIN
 select * 
-FROM consultants
-WHERE consultant_id = 5000;
+FROM projects a
+JOIN consultants b ON a.consultant_id = b.consultant_id
+WHERE a.consultant_id = 5000;
+
+/* NOTE 
+    - in creating composite index the column with the most unique values (cardinality) should come first in the brackets
+        ie if you have columns like vendor_id , status and invoice_date since status is only paid , unpaid or pending it should come after vendor_id
+            since you can have more than three vendors and after invoice dates since you can have more invoices.
+*/           
