@@ -119,10 +119,20 @@ USING HASH(student_id);
     in queries that involve checking both first name and last name it is better to use a composite index since it is faster than 
     an index with only one column.
     note the leftmost rule which states thata composite index of first name and second name helps in speeding up the query 
-    where it filters by only first name but does not help the query that only filters by secnd name 
+    where it filters by only first name but does not help the query that only filters by second name 
 */
+
 CREATE INDEX idx_student_names
 ON students(first_name, last_name);
+/*
+   NOTE 
+    - in creating composite index the column with the most unique values (cardinality) should come first in the brackets
+        ie if you have columns like vendor_id , status and invoice_date since status is only paid , unpaid or pending it should come after vendor_id
+            since you can have more than three vendors and after invoice dates since you can have more invoices.
+            
+*/
+CREATE INDEX composite_idx
+ON vendors(vendor_id,invoice_date,statuss);
 
 /*
     EXPLAIN and EXPLAIN ANALYZE
