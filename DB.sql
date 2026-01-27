@@ -29,9 +29,17 @@ CREATE TABLE IF NOT EXISTS projects(
 
 /*
     Creating indexes
+     - Since primary keys are automatically indexed we therefore do not need to index them
+     - We will therefore need to index the foreign keys since there will be joinings 
+     - Also create composite keys on two columns that have unique values.
 */
-CREATE INDEX idx_consultant_id ON consultants(consultant_id);
+CREATE INDEX idx_projects_consultant_id ON projects(consultant_id);
+CREATE INDEX idx_projects_client_id ON projects(client_id);
 
-CREATE INDEX idx_client_id ON clients(client_id);
-
-CREATE INDEX idx_project_id ON projects(project_id);
+/* 
+    checking the explain 
+*/
+EXPLAIN
+select * 
+FROM consultants
+WHERE consultant_id = 5000;
