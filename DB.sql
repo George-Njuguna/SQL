@@ -33,3 +33,5 @@ CREATE TABLE IF NOT EXISTS projects(
 CREATE INDEX idx_consultant_id ON consultants(consultant_id);
 
 CREATE INDEX idx_client_id ON clients(client_id);
+
+CREATE INDEX idx_project_id ON projects(project_id);
