@@ -3,7 +3,6 @@
 */
 CREATE DATABASE IF NOT EXISTS wrhsetestdb;
 
-
 /*
     creating tables that are 3NF
 */
