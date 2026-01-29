@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS projects(
      - We will therefore need to index the foreign keys since there will be joinings 
      - Also create composite keys on two columns that have unique values.
 */
-CREATE INDEX idx_projects_consultant_id ON projects(consultant_id);
-CREATE INDEX idx_projects_client_id ON projects(client_id);
+CREATE INDEX idx_projects_consultant_id ON projects(consultant_id) ;
+CREATE INDEX idx_projects_client_id ON projects(client_id) ;
 
 /* 
     checking the explain 
