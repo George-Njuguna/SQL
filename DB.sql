@@ -49,3 +49,4 @@ WHERE a.consultant_id = 5000 ;
         ie if you have columns like vendor_id , status and invoice_date since status is only paid , unpaid or pending it should come after vendor_id
             since you can have more than three vendors and after invoice dates since you can have more invoices . 
 */        
+
