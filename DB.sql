@@ -50,3 +50,6 @@ WHERE a.consultant_id = 5000 ;
             since you can have more than three vendors and after invoice dates since you can have more invoices . 
 */        
 
+/*
+
+*/
