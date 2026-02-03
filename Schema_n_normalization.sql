@@ -200,4 +200,5 @@ Isolation levels are set on the connection ie in python , not the database itsel
 Higher isolation = More Retries. If you use SERIALIZABLE, your script must be prepared to catch errors and try again.
 
 Performance: If your Python app is slow, check if you've set a high isolation level globally by mistake—this causes "Lock Wait" timeouts.
-*/            
+*/
+
