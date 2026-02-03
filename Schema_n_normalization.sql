@@ -193,4 +193,11 @@ WHERE student_id = 101; /* This runs and analyzes the query also giving the time
                                                 The difference between Select for Update and Serializable is that serializable lets people work and brings up an error when person B tries to commit 
                                                 whereas Select for updates doesnt let person B work, person b just Lags.
 
+NOTE:Key Takeaways for the Pipeline
+
+Isolation levels are set on the connection ie in python , not the database itself.
+
+Higher isolation = More Retries. If you use SERIALIZABLE, your script must be prepared to catch errors and try again.
+
+Performance: If your Python app is slow, check if you've set a high isolation level globally by mistake—this causes "Lock Wait" timeouts.
 */            
