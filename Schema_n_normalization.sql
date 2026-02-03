@@ -118,8 +118,9 @@ USING HASH(student_id);
                                                                     city - state
     in queries that involve checking both first name and last name it is better to use a composite index since it is faster than 
     an index with only one column.
-    note the leftmost rule which states thata composite index of first name and second name helps in speeding up the query 
+    note the leftmost rule which states that composite index of first name and second name helps in speeding up the query 
     where it filters by only first name but does not help the query that only filters by second name 
+    In the leftmost rule the composite 
 */
 
 CREATE INDEX idx_student_names
@@ -162,5 +163,8 @@ WHERE student_id = 101; /* This runs and analyzes the query also giving the time
 
 /*
     TRANSACTIONS AND ISOLATION LEVELS
-    
+    TRANSACTIONS in Databases are important since it prevents data leackage ,and data that is not full ie partial data
+        ie if a bank transaction crashes in during then you dont want cash removed from one account but not deposited into the next 
+        
+
 */            
