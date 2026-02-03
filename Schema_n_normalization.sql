@@ -175,5 +175,22 @@ WHERE student_id = 101; /* This runs and analyzes the query also giving the time
                                 Repeated reads are usually goods where speed is required and consistency is not a priority ie social media follower counts , likes 
                                 since accuracy here is not really important
 
+            The pessimistic approach(select for updates) - This is an isolation approach that locks the row and not the table lets say there are only 5 tickets left for
+                                                            a concert, since these seats are on demand therefore when person A clicks on buy ticket then person B clicks 
+                                                            on it, person B hangs untill person A finishes then when person B tries to buy i says ticket has been bought.
+                                                            This is extremley safe.
+                                                            You should only use this when 1. Contention is high - You know Multiple users are fighting for the same row
+                                                                                          2. Granular Control - You want to lock only the row and not the whole table or range of data
+                                                                                          3. Predictable logic - if your logic is Check Value -> Update Value -> Commit 
+            
+            Serializable (Optimistic Aproach) - if you choose this isolation approach the engine acts as a librarian that only allows people to pick one book at a time .You are not locking
+                                                rows but you are telling the engine to run the transaction as if no one else exists.
+                                                You should use the serializable approach when 
+                                                                        1. There is complex dependancies - your Transaction involves alot of tables.
+                                                                        2. Range Protection: You need to prevent Phantom Reads 
+                                                                            (e.g., "Ensure the sum of all transactions for this day equals exactly $10,000").
+                                                                            SELECT FOR UPDATE struggles with rows that don't exist yet; Serializable handles them.
+                                                The difference between Select for Update and Serializable is that serializable lets people work and brings up an error when person B tries to commit 
+                                                whereas Select for updates doesnt let person B work, person b just Lags.
 
 */            
