@@ -168,6 +168,7 @@ WHERE student_id = 101; /* This runs and analyzes the query also giving the time
         Transactions should have ACID (Atomicity, Consistency, Isolation, Durability) prnciples.
 
     Good ISOLATION LEVELS are important since it helps to prevent Dirty Reads, Non Repeatable Reads and Phantom Reads.
+    
     In Choosing Isolation Levels it is always better to look at the following
             read commited(Default)    - this is an isolation level where both parties looking at a database can make decisions on database
                                 it is extremley fast but poses a problem when lets say a seat is booked twice since person A and B saw a seat that was not
