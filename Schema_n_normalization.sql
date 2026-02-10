@@ -217,7 +217,12 @@ Performance: If your Python app is slow, check if you've set a high isolation le
     The staging Table also doest save logs making it 3x faster for logs.
 
     COPY
-    Never use insert in your backend when loading the data it is more faster to use COPY command or copy_expert(psycopyg2)
+    Never use insert in your backend when loading the data to the staging table  it is more faster to use COPY command or copy_expert(psycopyg2) and 
+    the standard insert checks permissions and datatypes when loading which may be slow
+
+    CHECKING FOR POISON 
+    After copying the data from your CSV or JSON to your staging table we can now do some checks ie removing duplicated checking negative numbers where there shouldnt be ETC
+    You can do this in python or java but when the data is more than a million rows those languages become slow and using the database engine is faster.
 */
 
 CREATE UNCLOGGED TABLE staging_sales( /* The UNCLOGGED lets the Engine Know it is a staging table */
@@ -227,5 +232,18 @@ CREATE UNCLOGGED TABLE staging_sales( /* The UNCLOGGED lets the Engine Know it i
     raw_price TEXT,
     raw_email TEXT
 ) ;
+
+-- Python Backend
+with open ('data.csv', 'r') as f: cursor.copy_expert ("COPY staging_sales FROM STDIN WITH CSV HEADER", f)
+
+-- Deleting  duplicates 
+DELETE FROM staging_sales a
+USING staging_sales b 
+WHERE a.ctid < b.ctid and a.raw_id = b.raw_id ;  
+
+-- Checking negative Numbers for prices 
+SELECT COUNT(*)
+FROM staging_sales
+WHERE CAST(raw_price AS NUMERIC) < 0 ;
 
 
