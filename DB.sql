@@ -51,5 +51,5 @@ WHERE a.consultant_id = 5000 ;
 */        
 
 /*
-
+    We Can set Isolation Levels but they are not set in the Database they are set in the Backend code 
 */
