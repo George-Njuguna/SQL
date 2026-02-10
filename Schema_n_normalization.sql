@@ -210,4 +210,22 @@ Performance: If your Python app is slow, check if you've set a high isolation le
                 - while loading millions of rows then one cell has a mismatch o data types then you have an error and lets say 15 minutes of loading leaves you with dirty data.
                 - lets say you have an index(b-Tree index) when loading the data CPU processing power will spike due to the engine needing to re-index
     It is therefore wise to use STAGING before loading data to production. 
+
+    STAGING
+    In this section we should create a staging table which is a snapshot image of the JSON / CSV file
+    The staging table doesnt have indexes, Primary Keys or Foreign Keys and all the columns have varchar datatypes.
+    The staging Table also doest save logs making it 3x faster for logs.
+
+    COPY
+    Never use insert in your backend when loading the data it is more faster to use COPY command or copy_expert(psycopyg2)
 */
+
+CREATE UNCLOGGED TABLE staging_sales( /* The UNCLOGGED lets the Engine Know it is a staging table */
+    raw_id TEXT,
+    raw_date TEXT,
+    raw_name TEXT,  /* every column is TEXT or VARCHAR to save on CPU power */
+    raw_price TEXT,
+    raw_email TEXT
+) ;
+
+
