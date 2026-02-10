@@ -209,5 +209,5 @@ Performance: If your Python app is slow, check if you've set a high isolation le
     In Loading data, loading from RAW to Production is not ideal because of these reasons 
                 - while loading millions of rows then one cell has a mismatch o data types then you have an error and lets say 15 minutes of loading leaves you with dirty data.
                 - lets say you have an index(b-Tree index) when loading the data CPU processing power will spike due to the engine needing to re-index
-    It is therefore wise to use STAGING before loading data to production 
+    It is therefore wise to use STAGING before loading data to production. 
 */
