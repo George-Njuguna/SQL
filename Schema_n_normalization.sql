@@ -223,6 +223,9 @@ Performance: If your Python app is slow, check if you've set a high isolation le
     CHECKING FOR POISON 
     After copying the data from your CSV or JSON to your staging table we can now do some checks ie removing duplicated checking negative numbers where there shouldnt be ETC
     You can do this in python or java but when the data is more than a million rows those languages become slow and using the database engine is faster.
+
+    INSERTING TO PRODUCTION TABLE 
+    Here is where we now insert the cleaned staging table to the production table you created before 
 */
 
 CREATE UNCLOGGED TABLE staging_sales( /* The UNCLOGGED lets the Engine Know it is a staging table */
