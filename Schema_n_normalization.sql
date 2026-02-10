@@ -246,4 +246,17 @@ SELECT COUNT(*)
 FROM staging_sales
 WHERE CAST(raw_price AS NUMERIC) < 0 ;
 
+-- loading the data from staging to production
+INSERT INTO production_sales(id,date,name,price,email)
+    SELECT CAST(raw_id as INTEGER),
+        CAST(raw_date as DATE),
+        CAST(raw_name as TEXT),
+        CAST(raw_price as NUMERIC),
+        TRIM(raw_email)
+    FROM staging_sales
+ON CONFLICT (id) DO UPDATE SET 
+price = EXCLUDED.price, 
+sale_date = EXCLUDED.sale_date;
+
+
 
