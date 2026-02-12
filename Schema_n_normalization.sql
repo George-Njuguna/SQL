@@ -279,7 +279,7 @@ INSERT INTO production_sales(id,date,name,price,email)
         TRIM(raw_email)
     FROM staging_sales
 ON CONFLICT (id) DO UPDATE SET 
-price = EXCLUDED.price, 
+price = EXCLUDED.price,  /* This ensures that there are no duplicate id's if there ia an id already inserted then change the price */
 sale_date = EXCLUDED.sale_date;
 
 
