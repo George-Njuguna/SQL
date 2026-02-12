@@ -255,6 +255,13 @@ SET
     raw_name = INITCAP(TRIM(raw_name)), /* removes the starting and trailing white spaces and ensuresnames start with uppercase */
     rame_email = LOWER(TRIM(raw_email));  /* removes the whitespaces and ensures the strings are in lowercase  */
 
+-- Dealing with Null values 
+UPDATE staging_sales
+SET 
+    COALESE(NULLIF(raw_email, ''),'Unknown') /* if email is an empty string changes it to a true NULL value then sets it as Unknown */
+WHERE raw_email IS NULL or raw_email = '';
+
+
 
 -- loading the data from staging to production
 INSERT INTO production_sales(id,date,name,price,email)
