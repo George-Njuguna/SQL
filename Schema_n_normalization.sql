@@ -262,10 +262,12 @@ SET
 WHERE raw_email IS NULL or raw_email = '';
 
 --  Checking if values are actually Numbers 
-DELETE FROM staging_table 
+DELETE FROM staging_sales 
 WHERE raw_price !~ '^[0-9]+(\.[0-9]{1,2})?$'; /* The regex checks if the data is actually a number if not it deletes it because pricecannot be in words */
 
-
+-- Checking if the numbers actually make sense
+DELETE FROM staging_sales
+where CAST(raw_price AS NUMERIC) > 5000; /* we are removing prices over 5,000 since my minimart doesnt have such sales */
 
 
 -- loading the data from staging to production
