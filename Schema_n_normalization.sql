@@ -249,6 +249,13 @@ SELECT COUNT(*)
 FROM staging_sales
 WHERE CAST(raw_price AS NUMERIC) < 0 ;
 
+-- string manipulation 
+UPDATE staging_sales
+SET 
+    raw_name = INITCAP(TRIM(raw_name)), /* removes the starting and trailing white spaces and ensuresnames start with uppercase */
+    rame_email = LOWER(TRIM(raw_email));  /* removes the whitespaces and ensures the strings are in lowercase  */
+
+
 -- loading the data from staging to production
 INSERT INTO production_sales(id,date,name,price,email)
     SELECT CAST(raw_id as INTEGER),
