@@ -249,7 +249,7 @@ SELECT COUNT(*)
 FROM staging_sales
 WHERE CAST(raw_price AS NUMERIC) < 0 ;
 
--- string manipulation 
+-- string manipulation and removing whitespaces 
 UPDATE staging_sales
 SET 
     raw_name = INITCAP(TRIM(raw_name)), /* removes the starting and trailing white spaces and ensuresnames start with uppercase */
