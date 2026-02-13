@@ -261,7 +261,7 @@ SET
     COALESE(NULLIF(raw_email, ''),'Unknown') /* if email is an empty string changes it to a true NULL value then sets it as Unknown */
 WHERE raw_email IS NULL or raw_email = '';
 
---  Checking if values are actually Numbers 
+--  Checking if values are actually Numbers using regex
 DELETE FROM staging_sales 
 WHERE raw_price !~ '^[0-9]+(\.[0-9]{1,2})?$'; /* The regex checks if the data is actually a number if not it deletes it because pricecannot be in words */
 
