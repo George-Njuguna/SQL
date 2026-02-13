@@ -255,7 +255,7 @@ SET
     raw_name = INITCAP(TRIM(raw_name)), /* removes the starting and trailing white spaces and ensuresnames start with uppercase */
     rame_email = LOWER(TRIM(raw_email));  /* removes the whitespaces and ensures the strings are in lowercase  */
 
--- Dealing with Null values 
+-- Dealing with Null values or Empty Strings
 UPDATE staging_sales
 SET 
     COALESE(NULLIF(raw_email, ''),'Unknown') /* if email is an empty string changes it to a true NULL value then sets it as Unknown */
