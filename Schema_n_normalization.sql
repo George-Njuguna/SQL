@@ -310,5 +310,6 @@ FOR values FROM ('2026-01-01') TO ('2026-01-31'); /* This table only holds data 
 -- Creating an index 
 CREATE INDEX idx_id_sensor ON sensor_2026_01(id);
 
+-- Note that all this is done by use of a Python script (often a Cron Job or Airflow Task)
 
 
