@@ -326,4 +326,11 @@ CREATE INDEX idx_id_sensor ON sensor_2026_01(id);
 
    The CHECK Constraint is mainly used for logical and Mathematical rules 
 */
+-- Checks for a Valid Email
+ALTER TABLE users 
+ADD CONSTRAINT valid_email CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+
+-- Checks for a valid price 
+ALTER TABLE sales
+ADD CONSTRAINT valid_sale CHECK(price > 0 );
 
