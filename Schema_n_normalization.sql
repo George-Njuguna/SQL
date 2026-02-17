@@ -312,4 +312,18 @@ CREATE INDEX idx_id_sensor ON sensor_2026_01(id);
 
 -- Note that all this is done by use of a Python script (often a Cron Job or Airflow Task)
 
+-- CONSTRAINTS
+/* Constraints are used to specify rules in a Table i.e the table can only load specific data or types of data 
+   This is important because it acts like a way of validation the data 
+   There are different types of costraints
+   NOT NULL - Ensures that a column cannot have a NULL value
+   UNIQUE - Ensures that all values in a column are different
+   PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+   FOREIGN KEY - Prevents actions that would destroy links between tables
+   CHECK - Ensures that the values in a column satisfies a specific condition
+   DEFAULT - Sets a default value for a column if no value is specified
+   CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+   The CHECK Constraint is mainly used for logical and Mathematical rules 
+*/
 
