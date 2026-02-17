@@ -288,6 +288,24 @@ sale_date = EXCLUDED.sale_date;
    This is important since as the number of rows grow serching for data using the index becomes slow since the Btree becomes so large that it cannot fit in the ram
    It is also important since when deleting lets say logs older than 2 years if there is no partition it might cause dataset with alot of holes.
 
-   
+   In partitioning there is the main table (parent Table) where you send all your queries to 
+   Then there is the Partition tables where the data actually resides
+
+*/
+
+-- Parent table 
+CREATE TABLE sensor_readings(
+    id BIGINT,
+    reading_time TIMESTAMP NOT NULL,
+    value INTEGER
+) PARTITION BY RANGE(reading_time);
+
+-- Partition table of January 2026
+CREATE TABLE sensor_2026_01 PARTITION OF sensor_readings
+FOR values FROM ('2026-01-01') TO ('2026-01-31'); /* This table only holds data for January 2026 */
+
+/* Note that indexes from parent table do not automatically show up in the 
+   partition table meaning you need to create the indexes on the partition table
+*/
 
 
