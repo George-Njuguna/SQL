@@ -307,5 +307,6 @@ FOR values FROM ('2026-01-01') TO ('2026-01-31'); /* This table only holds data 
 /* Note that indexes from parent table do not automatically show up in the 
    partition table meaning you need to create the indexes on the partition table
 */
-
+-- Creating an index 
+CREATE INDEX idx_id_sensor ON sensor_2026_01(id);
 
