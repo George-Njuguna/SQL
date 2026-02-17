@@ -283,4 +283,11 @@ price = EXCLUDED.price,  /* This ensures that there are no duplicate id's if the
 sale_date = EXCLUDED.sale_date;
 
 
+-- PARTITIONING
+/* Partitioning is important especially in Timeseries data like Logs since logs can build to 1 million Rows
+   This is important since as the number of rows grow serching for data using the index becomes slow since the Btree becomes so large that it cannot fit in the ram
+   It is also important since when deleting lets say logs older than 2 years if there is no partition it might cause dataset with alot of holes.
+
+   
+
 
