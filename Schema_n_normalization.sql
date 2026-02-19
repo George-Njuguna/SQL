@@ -339,4 +339,7 @@ ADD CONSTRAINT valid_sale CHECK(price > 0 );
    " They allow you to hide the complexity of 5-table joins and partitioning logic behind a simple "virtual table." 
      If you have a certain query that involves joining tables you can place them in a view to hide the complexities
 
+     Lets say you have a orders,users and products table and you always have a summary that requires you to join these tables 
+     we will create a view like a saved query that will be triggered instead of writting the query over and over again.
+
 */ 
