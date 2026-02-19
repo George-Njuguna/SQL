@@ -342,6 +342,11 @@ ADD CONSTRAINT valid_sale CHECK(price > 0 );
      Lets say you have a orders,users and products table and you always have a summary that requires you to join these tables 
      we will create a view like a saved query that will be triggered instead of writting the query over and over again.
 
+     The standard views run the query every single time but when you have 100 million rows this can be slow therefore MATERIALIZED views are used
+     These views are like a snapshot of the table at a given time meaning it will only update the data when you tell it to 
+     This is good especially where the real time data is not needed
+     The snapshot is stored in the disk untill it is updated
+
 */ 
 
 CREATE VIEW v_sales_summary AS 
