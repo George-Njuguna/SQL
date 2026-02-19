@@ -373,3 +373,5 @@ CREATE MATERIALIZED VIEW mv_monthly_report AS
 
 -- In the backend you will just call SELECT * FROM mv_monthly_report 
 
+-- NOTE : ALways tell the MATERIALIZED VIEW WHEN TO REFRESH 
+
