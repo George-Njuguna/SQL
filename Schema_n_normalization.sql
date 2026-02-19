@@ -334,3 +334,4 @@ ADD CONSTRAINT valid_email CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[
 ALTER TABLE sales
 ADD CONSTRAINT valid_sale CHECK(price > 0 );
 
+-- VIEWS AND MATERIALIZED VIEWS
