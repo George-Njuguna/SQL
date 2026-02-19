@@ -335,3 +335,8 @@ ALTER TABLE sales
 ADD CONSTRAINT valid_sale CHECK(price > 0 );
 
 -- VIEWS AND MATERIALIZED VIEWS
+/* Views are the "UI for the Database.
+   " They allow you to hide the complexity of 5-table joins and partitioning logic behind a simple "virtual table." 
+     If you have a certain query that involves joining tables you can place them in a view to hide the complexities
+
+*/ 
