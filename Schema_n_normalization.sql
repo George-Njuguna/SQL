@@ -347,6 +347,11 @@ ADD CONSTRAINT valid_sale CHECK(price > 0 );
      This is good especially where the real time data is not needed
      The snapshot is stored in the disk untill it is updated
 
+     The difference between standard view and materialized view is that 
+        standard doesnt store the data in the disk while materialized does 
+        Standard views are used for realtime data but materialized uses only as current as the previous refresh
+        Standard Views cannot be indexed but Materialized views may be indexed
+
 */ 
 
 CREATE VIEW v_sales_summary AS 
@@ -359,4 +364,12 @@ CREATE VIEW v_sales_summary AS
  JOIN products p ON o.product_id = p.id;
 
 -- In the backend ie python we will jus write SELECT * FROM v_sales_summary WHERE username = 'Bob'
+
+-- MATERIALIZED VIEW EXAMPLE 
+CREATE MATERIALIZED VIEW mv_monthly_report AS
+    SELECT date_trunc('month', created_at) as month, SUM(amount)
+    FROM massive_events_table -- (Even if partitioned!)
+    GROUP BY 1;
+
+-- In the backend you will just call SELECT * FROM mv_monthly_report 
 
