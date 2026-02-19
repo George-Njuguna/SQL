@@ -343,3 +343,15 @@ ADD CONSTRAINT valid_sale CHECK(price > 0 );
      we will create a view like a saved query that will be triggered instead of writting the query over and over again.
 
 */ 
+
+CREATE VIEW v_sales_summary AS 
+ SELECT 
+    u.username, 
+    p.product_name, 
+    o.order_date
+ FROM users u
+ JOIN orders o ON u.id = o.user_id
+ JOIN products p ON o.product_id = p.id;
+
+-- In the backend ie python we will jus write SELECT * FROM v_sales_summary WHERE username = 'Bob'
+
