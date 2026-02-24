@@ -59,8 +59,7 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 
 -- CREATING tracks played table 
 CREATE TABLE IF NOT EXISTS tracks(
-    entry_id BIGSERIAL PRIMARY KEY,
-    track_id VARCHAR(22) UNIQUE NOT NULL,
+    track_id VARCHAR(22) PRIMARY KEY,
     song_name TEXT,
     artist_id TEXT,
     album_id TEXT,
@@ -68,14 +67,12 @@ CREATE TABLE IF NOT EXISTS tracks(
 );
 -- artist table
 CREATE TABLE IF NOT EXISTS artist_played(
-    entry_id BIGSERIAL PRIMARY KEY,
-    artist_id VARCHAR(22) UNIQUE NOT NULL,
+    artist_id VARCHAR(22) PRIMARY KEY,
     artist_name TEXT
 );
 
 -- album table
 CREATE TABLE IF NOT EXISTS albumns_played(
-    entry_id BIGSERIAL PRIMARY KEY,
-    album_id VARCHAR(22) UNIQUE NOT NULL,
+    album_id VARCHAR(22) PRIMARY KEY,
     album_name TEXT
 );
