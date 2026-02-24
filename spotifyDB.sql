@@ -46,3 +46,16 @@ CREATE DATABASE spotify_wrhse;
           album_name directly depend on the album_id and not the primary key therefore we will create an albumns_table 
           artist_name directly depend on the artist_id and not the primary key therefore we will create an artists_table 
           we will also remove the explicit column since it doesnt give new information.
+*/
+
+-- CREATING songs played table 
+CREATE TABLE IF NOT EXISTS tracks_played(
+    entry_id BIGSERIAL PRIMARY KEY,
+    id TEXT,
+    name TEXT,
+    artist_id TEXT,
+    album_id TEXT,
+    popularity INTEGER
+);
+-- The above table is 3NF now we will create the albums table and artist table 
+
