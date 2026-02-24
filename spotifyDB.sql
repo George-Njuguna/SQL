@@ -51,11 +51,24 @@ CREATE DATABASE spotify_wrhse;
 -- CREATING songs played table 
 CREATE TABLE IF NOT EXISTS tracks_played(
     entry_id BIGSERIAL PRIMARY KEY,
-    id TEXT,
-    name TEXT,
+    song_id TEXT,
+    song_name TEXT,
     artist_id TEXT,
     album_id TEXT,
     popularity INTEGER
 );
 -- The above table is 3NF now we will create the albums table and artist table 
 
+-- artist table
+CREATE TABLE IF NOT EXISTS artist_played(
+    entry_id BIGSERIAL PRIMARY KEY,
+    artist_id VARCHAR(22) UNIQUE NOT NULL,
+    artist_name TEXT
+);
+
+-- album table
+CREATE TABLE IF NOT EXISTS albumns_played(
+    entry_id BIGSERIAL PRIMARY KEY,
+    album_id VARCHAR(22) UNIQUE NOT NULL,
+    album_name TEXT
+);
