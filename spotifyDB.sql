@@ -41,6 +41,7 @@ CREATE DATABASE spotify_wrhse;
 
     2NF : This is to remove redundancy in the table but since the table has 1 primary key the table already is in 2NF 
           BUT we can change the primary Key to a number which is faster in lookups and Joins therefore "entry_id will be BIGSERIAL PRIMARY KEY"
+          We will also need to create a tracks table where information about a song is listed inorder not to repeat artist_id, artist_name,album_id, album_name more and more times 
 
     3NF : The table is not 3NF since some columns do not soley depend on the primary key directly therfore that part of the table needs to be taken to another table
           album_name directly depend on the album_id and not the primary key therefore we will create an albumns_table 
@@ -51,14 +52,20 @@ CREATE DATABASE spotify_wrhse;
 -- CREATING songs played table 
 CREATE TABLE IF NOT EXISTS tracks_played(
     entry_id BIGSERIAL PRIMARY KEY,
-    song_id TEXT,
+    song_id VARCHAR(22),
+    played_at TIMESTAMPTZ
+);
+-- The above table is 3NF now we will create the albums table and artist table
+
+-- CREATING tracks played table 
+CREATE TABLE IF NOT EXISTS tracks(
+    entry_id BIGSERIAL PRIMARY KEY,
+    track_id VARCHAR(22) UNIQUE NOT NULL,
     song_name TEXT,
     artist_id TEXT,
     album_id TEXT,
     popularity INTEGER
 );
--- The above table is 3NF now we will create the albums table and artist table 
-
 -- artist table
 CREATE TABLE IF NOT EXISTS artist_played(
     entry_id BIGSERIAL PRIMARY KEY,
