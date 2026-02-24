@@ -1,0 +1,1 @@
+-- This project is where i try to rebuild my existing spotify database using what i have learnt 
