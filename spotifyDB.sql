@@ -83,6 +83,8 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 );
 /* Now that the tables have been created when loading the data you have to load the data in this order 
    artist -> albums -> tracks -> tracks_played
+*/
 
+--  INDEXING
 
 
