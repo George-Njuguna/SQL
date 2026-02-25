@@ -49,6 +49,9 @@ CREATE DATABASE spotify_wrhse;
           we will also remove the explicit column since it doesnt give new information.
 */
 
+-- Note we will first create the tables without the foreign keys the tables are artist played since it doest have a foreign key  
+
+
 -- CREATING songs played table 
 CREATE TABLE IF NOT EXISTS tracks_played(
     entry_id BIGSERIAL PRIMARY KEY,
@@ -66,13 +69,14 @@ CREATE TABLE IF NOT EXISTS tracks(
     popularity INTEGER
 );
 -- artist table
-CREATE TABLE IF NOT EXISTS artist_played(
+CREATE TABLE IF NOT EXISTS artist(
     artist_id VARCHAR(22) PRIMARY KEY,
     artist_name TEXT
 );
 
 -- album table
-CREATE TABLE IF NOT EXISTS albumns_played(
+CREATE TABLE IF NOT EXISTS albumns(
     album_id VARCHAR(22) PRIMARY KEY,
     album_name TEXT
+    artist_id VARCHAR(22)
 );
