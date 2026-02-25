@@ -50,33 +50,39 @@ CREATE DATABASE spotify_wrhse;
 */
 
 -- Note we will first create the tables without the foreign keys the tables are artist played since it doest have a foreign key  
-
-
--- CREATING songs played table 
-CREATE TABLE IF NOT EXISTS tracks_played(
-    entry_id BIGSERIAL PRIMARY KEY,
-    song_id VARCHAR(22),
-    played_at TIMESTAMPTZ
-);
--- The above table is 3NF now we will create the albums table and artist table
-
--- CREATING tracks played table 
-CREATE TABLE IF NOT EXISTS tracks(
-    track_id VARCHAR(22) PRIMARY KEY,
-    song_name TEXT,
-    artist_id TEXT,
-    album_id TEXT,
-    popularity INTEGER
-);
 -- artist table
-CREATE TABLE IF NOT EXISTS artist(
+CREATE TABLE IF NOT EXISTS artists(
     artist_id VARCHAR(22) PRIMARY KEY,
     artist_name TEXT
 );
 
+-- We will then create the albums table since it only references the artist table 
 -- album table
 CREATE TABLE IF NOT EXISTS albumns(
     album_id VARCHAR(22) PRIMARY KEY,
     album_name TEXT
-    artist_id VARCHAR(22)
+    artist_id VARCHAR(22) REFERENCES artist(artist_id)
 );
+
+-- We will now create a tracks table since it references the album and artist table 
+-- CREATING tracks table 
+CREATE TABLE IF NOT EXISTS tracks(
+    track_id VARCHAR(22) PRIMARY KEY,
+    track_name TEXT,
+    artist_id VARCHAR(22) REFERENCES artists(artist_id),
+    album_id VARCHAR(22) REFERENCES albuma(album_id),
+    popularity INTEGER
+);
+
+-- We will now create the songs played 
+-- CREATING songs played table 
+CREATE TABLE IF NOT EXISTS tracks_played(
+    entry_id BIGSERIAL PRIMARY KEY,
+    track_id VARCHAR(22) REFERENCES tracks(track_id),
+    played_at TIMESTAMPTZ
+);
+/* Now that the tables have been created when loading the data you have to load the data in this order 
+   artist -> albums -> tracks -> tracks_played
+
+
+
