@@ -86,5 +86,8 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 */
 
 --  INDEXING
+/*  I will now index columns which will be usefull when searching 
+    Primary keys are usually indexed by the engine but things like foreign keys are not therefore we will index the foreign keys 
+*/
 
 
