@@ -89,5 +89,9 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 /*  I will now index columns which will be usefull when searching 
     Primary keys are usually indexed by the engine but things like foreign keys are not therefore we will index the foreign keys 
 */
+--  indexing the artist_id(FK) in albums table 
+CREATE INDEX idx_albums_artist_id on albums(artist_id);
+
+-- indexing artist id and album id in tracks Table
 
 
