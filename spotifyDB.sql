@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 --  INDEXING
 /*  I will now index columns which will be usefull when searching 
     Primary keys are usually indexed by the engine but things like foreign keys are not therefore we will index the foreign keys 
+    These indexes will be important especially when joining tables to make queries more fast.
 */
 --  indexing the artist_id(FK) in albums table 
 CREATE INDEX idx_albums_artist_id on albums(artist_id);
