@@ -93,5 +93,6 @@ CREATE TABLE IF NOT EXISTS tracks_played(
 CREATE INDEX idx_albums_artist_id on albums(artist_id);
 
 -- indexing artist id and album id in tracks Table
-
+CREATE INDEX idx_tracks_artist_id on tracks(artist_id);
+CREATE INDEX idx_tracks_album_id on tracks(album_id);
 
