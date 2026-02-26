@@ -97,5 +97,8 @@ CREATE INDEX idx_albums_artist_id on albums(artist_id);
 CREATE INDEX idx_tracks_artist_id on tracks(artist_id);
 CREATE INDEX idx_tracks_album_id on tracks(album_id);
 
+-- indexing track_id in tracks_played
+CREATE INDEX idx_tracks_played_id on tracks_played(track_id);
+
 
 
