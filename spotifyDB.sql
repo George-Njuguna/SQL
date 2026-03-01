@@ -127,4 +127,26 @@ CREATE TABLE IF NOT EXISTS followed_artists(
     genre TEXT NOT NULL
 )
 
+/*  We will now check the playlist table 
+                Table "public.playlists"
+        Column  |  Type   | Collation | Nullable | Default
+        ----------+---------+-----------+----------+---------
+        id       | text    |           | not null |
+        name     | text    |           | not null |
+        owner_id | text    |           | not null |
+        tracks   | integer |           |          |
+        public   | boolean |           |          | true
+        Indexes:
+            "playlists_pkey" PRIMARY KEY, btree (id)
+    
+    The table is already 3NF but we can remove the public column 
+*/
+CREATE TABLE IF NOT EXISTS playlists(
+    playlist_id VARCHAR(22) PRIMARY KEY,
+    Playlist_name TEXT,
+    owner_id VARCHAR(22),
+    tracks INTEGER
+)
+
+
 
