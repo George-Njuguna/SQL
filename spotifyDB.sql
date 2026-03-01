@@ -103,6 +103,22 @@ CREATE INDEX idx_tracks_played_id on tracks_played(track_id);
 /*              followed artists
     We will now create a followed artist table 
     This table contains artists that the user follows 
+
+    when checking the table
+            Table "public.followed_artists"
+        Column   |  Type   | Collation | Nullable | Default
+     ------------+---------+-----------+----------+---------
+        id         | text    |           | not null |
+        name       | text    |           | not null |
+        popularity | integer |           |          |
+        followers  | integer |           |          |
+        genre      | text    |           | not null |
+        Indexes:
+            "followed_artists_pkey" PRIMARY KEY, btree (id)
+
+    From the table structure we can see the table has 5 columns and the id(artist_id) is the PK 
+    The Table is already 1NF and 2NF therefore we need to change it to 3NF
+    We will remove popularity and Followers from the table since it doesnt have any use in our final report
 */
 
 
