@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS artists(
 
 -- We will then create the albums table since it only references the artist table 
 -- album table
-CREATE TABLE IF NOT EXISTS albumns(
+CREATE TABLE IF NOT EXISTS played_albumns(
     album_id VARCHAR(22) PRIMARY KEY,
     album_name TEXT
     artist_id VARCHAR(22) REFERENCES artist(artist_id)
@@ -148,6 +148,30 @@ CREATE TABLE IF NOT EXISTS playlists(
     owner_id VARCHAR(22),
     tracks INTEGER
 )
+
+/* we will now check for the saved_albums
+                    Table "public.saved_albums"
+        Column    |  Type   | Collation | Nullable | Default
+        -------------+---------+-----------+----------+---------
+        id          | text    |           | not null |
+        name        | text    |           | not null |
+        artist_name | text    |           | not null |
+        artist_id   | text    |           |          |
+        tracks      | integer |           |          |
+        popularity  | integer |           |          |
+        Indexes:
+            "saved_albums_pkey" PRIMARY KEY, btree (id)
+
+    To change this to 3NF we need to remove the artist name 
+    Then we will remove popularity from the table 
+*/
+CREATE TABLE saved_albums(
+    album_id VARCHAR(22) PRIMARY KEY,
+    album_name TEXT,
+    artist_id VARCHAR(22) REFERENCES artists(artist_id), /* For an album to be saved it means it has already been listened */
+    total_tracks INTEGER
+)
+
 
 
 
