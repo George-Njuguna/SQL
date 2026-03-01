@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS tracks(
     track_name TEXT,
     artist_id VARCHAR(22) REFERENCES artists(artist_id),
     album_id VARCHAR(22) REFERENCES albuma(album_id),
-    popularity INTEGER
+    duration INTEGER
 );
 
 -- We will now create the songs played 
@@ -172,6 +172,27 @@ CREATE TABLE saved_albums(
     total_tracks INTEGER
 )
 
+/* we will now check for saved_tracks
+ Table "public.saved_tracks"
+   Column    |  Type   | Collation | Nullable | Default
+-------------+---------+-----------+----------+---------
+ id          | text    |           | not null |
+ name        | text    |           | not null |
+ artist_name | text    |           | not null |
+ artist_id   | text    |           |          |
+ album_name  | text    |           | not null |
+ album_id    | text    |           |          |
+ duration    | integer |           |          |
+ explicit    | boolean |           |          | true
+ popularity  | integer |           |          |
+Indexes:
+    "saved_tracks_pkey" PRIMARY KEY, btree (id)
 
+to make this table 3NF we need to remove artist_name, the name(track_name), album_name, dutation, popularity and explicit 
+*/
+CREATE TABLE saved_tracks(
+    track_id VARCHAR(22) PRIMARY KEY
+    added_at TIMESTAMPTZ
+)
 
 
