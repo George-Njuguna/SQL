@@ -100,5 +100,10 @@ CREATE INDEX idx_tracks_album_id on tracks(album_id);
 -- indexing track_id in tracks_played
 CREATE INDEX idx_tracks_played_id on tracks_played(track_id);
 
+/*              followed artists
+    We will now create a followed artist table 
+    This table contains artists that the user follows 
+*/
+
 
 
