@@ -53,7 +53,8 @@ CREATE DATABASE spotify_wrhse;
 -- artist table
 CREATE TABLE IF NOT EXISTS artists(
     artist_id VARCHAR(22) PRIMARY KEY,
-    artist_name TEXT
+    artist_name TEXT,
+    genre TEXT
 );
 
 -- We will then create the albums table since it only references the artist table 
