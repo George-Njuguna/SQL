@@ -121,5 +121,10 @@ CREATE INDEX idx_tracks_played_id on tracks_played(track_id);
     We will remove popularity and Followers from the table since it doesnt have any use in our final report
 */
 
+CREATE TABLE IF NOT EXISTS followed_artists(
+    artist_id VARCHAR(22) PRIMARY KEY,
+    name TEXT NOT NULL,
+    genre TEXT NOT NULL
+)
 
 
