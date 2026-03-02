@@ -195,4 +195,6 @@ CREATE TABLE saved_tracks(
     added_at TIMESTAMPTZ
 )
 
+/* we will now check for playlist tracks 
+
 
