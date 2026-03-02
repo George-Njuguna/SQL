@@ -213,4 +213,6 @@ CREATE playlist_tracks(
     PRIMARY KEY(playlist_id,track_id)
 );
 
+-- Creating an index 
+CREATE INDEX idx_playlist_tracks_id ON playlist_tracks(track_id);
 
