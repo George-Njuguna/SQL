@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS followed_artists(
     artist_id VARCHAR(22) PRIMARY KEY,
     name TEXT NOT NULL,
     genre TEXT NOT NULL
-)
+);
 
 /*  We will now check the playlist table 
                 Table "public.playlists"
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS playlists(
     Playlist_name TEXT,
     owner_id VARCHAR(22),
     tracks INTEGER
-)
+);
 
 /* we will now check for the saved_albums
                     Table "public.saved_albums"
@@ -170,7 +170,7 @@ CREATE TABLE saved_albums(
     album_name TEXT,
     artist_id VARCHAR(22) REFERENCES artists(artist_id), /* For an album to be saved it means it has already been listened */
     total_tracks INTEGER
-)
+);
 
 /* we will now check for saved_tracks
  Table "public.saved_tracks"
@@ -193,7 +193,7 @@ to make this table 3NF we need to remove artist_name, the name(track_name), albu
 CREATE TABLE saved_tracks(
     track_id VARCHAR(22) PRIMARY KEY
     added_at TIMESTAMPTZ
-)
+);
 
 /* we will now check for playlist tracks 
                      Table "public.playlist_tracks"
