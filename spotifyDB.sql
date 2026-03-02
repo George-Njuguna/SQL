@@ -196,5 +196,15 @@ CREATE TABLE saved_tracks(
 )
 
 /* we will now check for playlist tracks 
+                     Table "public.playlist_tracks"
+   Column    |           Type           | Collation | Nullable | Default
+-------------+--------------------------+-----------+----------+---------
+ playlist_id | text                     |           |          |
+ track_id    | text                     |           |          |
+ added_at    | timestamp with time zone |           |          |
+
+To make this 3NF we need to create a composite key of playlist_id and track_id 
+
+
 
 
