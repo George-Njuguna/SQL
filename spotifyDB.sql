@@ -204,7 +204,13 @@ CREATE TABLE saved_tracks(
  added_at    | timestamp with time zone |           |          |
 
 To make this 3NF we need to create a composite key of playlist_id and track_id 
+*/
+CREATE playlist_tracks(
+    playlist_id VARCHAR(22) REFERENCES playlists(playlist_id),
+    track_id VARCHAR(22),
+    added_at TIMESTAMPTZ,
 
-
+    PRIMARY KEY(playlist_id,track_id)
+);
 
 
